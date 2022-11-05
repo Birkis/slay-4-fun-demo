@@ -1,0 +1,27 @@
+.image-with-text-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+
+}
+
+.text-content {
+    grid-column: 1 /2;
+    grid-row: 1/ span 2;
+
+}
+
+.image-content {
+    grid-column: 2 / 3;
+    grid-row: 1 /3;
+}
+
+.image-content img {
+    height: 500px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+
