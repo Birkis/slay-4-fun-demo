@@ -1335,6 +1335,19 @@
         "name": "Image with text"
       }
     },
+    "image-with-text-new": {
+      "name": "New Image with text",
+      "settings": {
+        "image": {
+          "label": "Image"
+        }
+      },
+      "blocks": {
+      },
+      "presets": {
+        "name": "New Image with text"
+      }
+    },
     "main-account": {
       "name": "Account"
     },
