@@ -109,9 +109,9 @@
       ],
       "settings": {
         "enable_sticky_info": true,
-        "media_position": "left",
-        "gallery_layout": "stacked",
-        "media_size": "large",
+        "media_position": "right",
+        "gallery_layout": "columns",
+        "media_size": "medium",
         "image_zoom": "lightbox",
         "mobile_thumbnails": "hide",
         "hide_variants": true,
@@ -124,6 +124,7 @@
       "type": "image-with-text-new",
       "settings": {
         "image": "shopify:\/\/shop_images\/girl-listening-to-music-5.jpg",
+        "desktop_image_width": "medium",
         "padding_top": 100,
         "padding_bottom": 100
       }
