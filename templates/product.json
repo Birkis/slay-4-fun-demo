@@ -113,13 +113,10 @@
     "image-with-text": {
       "type": "image-with-text-new",
       "blocks": {
-
       },
       "block_order": [
-
       ],
       "settings": {
-
       }
     },
     "multicolumn": {
