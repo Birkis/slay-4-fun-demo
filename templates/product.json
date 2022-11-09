@@ -117,6 +117,10 @@
       "block_order": [
       ],
       "settings": {
+        "image": "shopify:\/\/shop_images\/girl-listening-to-music-5.jpg",
+        "desktop_image_width": "medium",
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     },
     "multicolumn": {
