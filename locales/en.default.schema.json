@@ -1343,6 +1343,21 @@
         }
       },
       "blocks": {
+        "heading": {
+          "name": "Heading",
+          "settings": {
+            "heading": {
+              "label": "Heading"
+            }
+          }
+        },        "text": {
+          "name": "Text",
+          "settings": {
+            "text": {
+              "label": "Content"
+            }
+          }
+        }
       },
       "presets": {
         "name": "New Image with text"
@@ -2615,6 +2630,9 @@
       "presets": {
         "name": "Rich text"
       }
+    },
+    "rich-text-columns":{
+      "name": "Rich Text Columns"
     },
     "video": {
       "name": "Video",

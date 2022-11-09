@@ -12,21 +12,43 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .font-color-accent-1 {
+    color: {{ settings.colors_accent_1 }};
+  }
+
+  .font-color-accent-2 {
+    color: {{ settings.colors_accent_2 }};
+  }
+
 {%- endstyle -%}
 
 
 <div class="image-with-text-wrapper page-width section-{{ section.id }}-padding">
-    <div class="text-content">
-      <div class="text-title">
-          <h1>Bringing you the <span class="text-title-accent-color">best</span> audio gear</h1>
-      </div>
-      <div class="text-para" >
-        <p>Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.</p>
-      </div>
+    <div class="text-content-{{ section.settings.image_text_element_order }}">
+      
+      {% for block in section.blocks -%}
+        {% case block.type %}
+        
+          {% when 'heading' %}
+            <div class="text-title ">
+              <h1>{{ block.settings.heading | escape }}</h1>
+            </div>
+
+          {% when 'text' %}
+            <div class="text-para">
+              {{ block.settings.text }}
+            </div>
+        
+        {% endcase %}
+      {% endfor %}
+
+
     </div>
 
-    <div class="image-content">
+    <div class="image-content-{{ section.settings.image_text_element_order }}">
 
+      <!-- THIS IS AN  IMAGE BEING LOADED FROM THE SCHEMA/BACKEND -->
       {%- if section.settings.image != blank -%}
         {{ section.settings.image | image_url: width: 500, crop: 'center' | image_tag:
           loading: 'lazy'
@@ -35,8 +57,6 @@
         
       {{ images['GIRL-LISTENING-TO-MUSIC-2.jpg'] | image_url: width: 500 | image_tag }}
       {%- endif -%}
-
-
     </div>
 </div>
 
@@ -50,27 +70,6 @@
       "type": "image_picker",
       "id": "image",
       "label": "t:sections.image-with-text-new.settings.image.label"
-    },
-    {
-      "type": "select",
-      "id": "desktop_image_width",
-      "options": [
-        {
-          "value": "small",
-          "label": "t:sections.image-with-text.settings.desktop_image_width.options__1.label"
-        },
-        {
-          "value": "medium",
-          "label": "t:sections.image-with-text.settings.desktop_image_width.options__2.label"
-        },
-        {
-          "value": "large",
-          "label": "t:sections.image-with-text.settings.desktop_image_width.options__3.label"
-        }
-      ],
-      "default": "medium",
-      "label": "t:sections.image-with-text.settings.desktop_image_width.label",
-      "info": "t:sections.image-with-text.settings.desktop_image_width.info"
     },
     {
       "type": "header",
@@ -95,13 +94,84 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 100
+    },
+    {
+      "type": "select",
+      "id": "standout_color_scheme",
+      "options": [
+        {
+          "value": "font-color-accent-1",
+          "label": "blue"
+        },
+        {
+          "value": "font-color-accent-2",
+          "label": "green"
+        },
+        {
+          "value": "",
+          "label": "none"
+        }
+      ],
+      "default": "",
+      "label": "none"
+    },
+    {
+      "type": "select",
+      "id": "image_text_element_order",
+      "options": [
+        {
+          "value":"",
+          "label":"text-first"
+        },
+        {
+          "value":"reverse",
+          "label":"image-first"
+        }
+      ],
+      "default":"",
+      "label":"Text or image first"
     }
   ],
   "blocks": [
-
+    {
+      "type": "heading",
+      "name": "t:sections.image-with-text-new.blocks.heading.name",
+      "limit":1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Add your title here",
+          "label": "t:sections.image-with-text-new.blocks.heading.settings.heading.label"
+        }
+      ]
+    },
+    {
+      "type":"text",
+      "name":"t:sections.image-with-text-new.blocks.text.name",
+      "limit":1,
+      "settings":[
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories.</p>",
+          "label": "t:sections.image-with-text.blocks.text.settings.text.label"
+        }
+      ]
+    }
   ],
   "presets": [
-
+    {
+    "name":"t:sections.image-with-text-new.presets.name",
+    "blocks":[
+        {
+          "type":"heading"
+        },
+        {
+          "type":"text"
+        }
+      ]
+    }
   ]
 }
 {% endschema %}
