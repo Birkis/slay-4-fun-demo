@@ -1,0 +1,78 @@
+{{ 'component-card-slay.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+
+
+
+
+
+{% endstyle %}
+
+<div class="section-{{ section.id }}-padding page-width"> 
+    <div class="product-container">
+        <div class="collection-product-tiles-layout">
+            {% for product  in collection.products -%}
+        
+                <div class="product-tile-wrapper">
+                    <div class="product-tile-cover-image-wrapper">
+                        <h2>Centered item </h2>
+                        <div class="product-image-badges">
+                            <div class="tl"> </div>
+                            <div class="tc"></div>
+                            <div class="tr"></div>
+                            <div class="ml"></div>
+                            <div class="mc"></div>
+                            <div class="mr"></div>
+                            <div class="bl"> 
+                            {% if product.compare_at_price > product.price %}
+                                <p> SALE </p>
+                            {% endif %}
+                            
+                            </div>
+                            <div class="bc"></div>
+                            <div class="br"></div>
+                        </div>
+                        <div class="product-tile-cover-image-container">
+                            {{ product
+                            | image_url:
+                                width: 500,
+                                crop: 'center'
+                            | image_tag:
+                                loading: 'lazy'
+                            }}
+                        </div>
+                    </div>
+                    <div class="product-details-container">
+                        <div class="product-details-title">
+                            <h2>{{ product.title }}</h2>
+                        </div>
+                        <div class="product-details-price">
+
+                            {% if product.compare_at_price > product.price %}
+                                <p class="product-compare-at-price">{{ product.compare_at_price | money }}</p>
+                            {% endif %}
+
+                            <p class="product-price">{{ product.price | money }}</p>
+                        </div>
+                        <div class="product-details-description">
+                            <p>{{ product.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+</div>
+
+
+{% schema %}
+    {
+        "name":"t:sections.main-collection-product-grid-slay.name",
+        "class":"section",
+        "settings": [
+
+        ]
+    }
+{% endschema %}

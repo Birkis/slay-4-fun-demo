@@ -1,0 +1,154 @@
+
+.product-container {
+    container-type: inline-size;
+
+}
+
+.collection-product-tiles-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
+
+}
+
+@container (min-width: 900px){
+
+    .collection-product-tiles-layout {
+        grid-template-columns: repeat(4, 1fr);   
+    }
+}
+
+.product-tile-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-tile-cover-image-wrapper {
+  /* border: 2px solid cornflowerblue; */
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+.product-tile-cover-image-wrapper > * {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+
+}
+
+.product-image-badges {
+    display: grid;
+    grid-template-areas: 
+    "tl tc tr"
+    "ml mc mr"
+    "bl bc br"
+    ;
+    width: 100%;
+    height: 100%;
+}
+
+.product-price {
+    margin:0;
+}
+
+
+
+.product-compare-at-price {
+    margin: 0;
+    text-decoration: line-through;
+}
+
+
+.product-image-badges > * {
+    /* Adds an effect to all the  tiles in the product images */
+    filter: opacity(1);
+}
+
+    .tl {
+        width: 100%;
+        grid-area: tl;
+        /* background-color: coral; */
+    }
+    .tc {
+        grid-area: tc;
+        width: 100%;
+        background-color: blanchedalmond;
+
+    }
+    .tr {
+        grid-area: tr;
+        width: 100%;
+    }
+    .ml {
+        grid-area: ml;
+        width: 100%;
+    }
+    .mc {
+        grid-area: mc;
+        width: 100%;
+    } 
+    .mr {
+        grid-area: mr;
+        width: 100%;
+    }
+    .bl {
+        grid-area: bl;
+        width: 100%;
+        margin: 0;
+    }
+    .bc {
+        grid-area: bc;
+        width: 100%;
+    }
+    .br {
+        grid-area: br;
+        width: 100%;
+        /* background-color: aqua; */
+    }
+
+.product-tile-cover-image-container{
+    z-index: -1;
+}
+
+
+.product-tile-cover-image-container {
+
+}
+
+
+
+
+
+
+
+.product-tile-cover-image-container  img  {
+    height:  100%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    /* border: 2px solid yellowgreen; */
+}
+
+.product-details-container {
+    display: grid;
+    grid-template-columns: 
+    60% 40%;
+}
+
+.product-details-title {
+    grid-column: 1 / 2;
+}
+
+.product-details-price  {
+    grid-column: 2 / 3;
+    justify-self: end;
+}
+
+
+.product-details-description {
+    grid-column: 1 / 3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

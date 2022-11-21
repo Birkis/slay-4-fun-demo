@@ -75,6 +75,11 @@
         "padding_bottom": 0
       }
     },
+    "rich_text_columns":{
+      "type": "rich-text-columns",
+      "blocks":{},
+      "settings":{}
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -238,6 +243,7 @@
   "order": [
     "image_banner",
     "rich_text",
+    "rich_text_columns",
     "featured_collection",
     "collage",
     "video",
