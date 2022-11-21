@@ -2632,7 +2632,29 @@
       }
     },
     "rich-text-columns":{
-      "name": "Rich Text Columns"
+      "name": "Rich Text Columns",
+      "settings":{},
+      "blocks":{
+        "heading":{
+          "name": "Heading",
+          "settings": {
+            "heading": {
+              "label": "Heading"
+            }
+          }
+        },
+        "text":{
+          "name": "Text",
+          "settings": {
+            "text": {
+              "label": "Description"
+            }
+          }
+        }
+      },
+      "presets":{
+        "name":"Rich Text Columns"
+      }
     },
     "video": {
       "name": "Video",

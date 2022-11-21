@@ -6,17 +6,80 @@
 <div id="{{ section.id }} ">
 
 
-    <h1>Rich text Columns</h1>
+    {% for block in section.blocks %}
+
+        {% case block.type -%}
+
+
+            {% when 'heading' -%}
+                <div>
+                    <h1>
+                        {{ block.settings.heading | escape }}
+                    </h1>
+                </div>
+
+            {% when  'text' %}
+                <p>
+                    {{ block.settings.text }}
+                </p>
+
+        {% endcase %}
+    {% endfor %}
+    
 
 </div>
 
 
 {% schema %}
-{
-    "name": "t:sections.rich-text-columns.name",
-    "class": "section",
-    "settings": [],
-    "blocks":[],
-    "presets":[]
-}
+    {
+        "name": "t:sections.rich-text-columns.name",
+        "class": "section",
+        "settings": [
+            {
+                "type": "header",
+                "content": "t:sections.all.padding.section_padding_heading"
+              }
+        ],
+        "blocks":[
+            {
+            "type":"heading",
+            "name": "t:sections.rich-text-columns.blocks.heading.name",
+            "limit":1,
+            "settings":[
+                {
+                "type": "richtext",
+                "id": "heading",
+                "default":"<p>Forty-two, said Deep Thought</p>",
+                "label": "t:sections.rich-text-columns.blocks.heading.settings.heading.label"
+                }
+            ]
+            },
+            {
+            "type":"text",
+            "name":"t:sections.rich-text-columns.blocks.text.name",
+            "limit":1,
+            "settings":  [
+                {
+                    "type":"richtext",
+                    "id":"text",
+                    "default":"<p>Many were increasingly of the opinion that theyd all made a big mistake in coming down from the trees in the first place. And some said that even the trees had been a bad move, and that no one should ever have left the oceans.</p>",
+                    "label":"t:sections.rich-text-columns.blocks.text.settings.text.label"
+                    }
+                ]
+            }
+        ],
+        "presets":[
+            {
+            "name":"t:sections.rich-text-columns.presets.name",
+            "blocks": [
+                {
+                    "type":"heading"
+                },
+                {
+                    "type":"text"
+                }
+            ]
+        }
+        ]
+    }
 {% endschema %}
