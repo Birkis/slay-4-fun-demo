@@ -145,7 +145,7 @@
         "padding_top": 100,
         "padding_bottom": 100,
         "standout_color_scheme": "font-color-accent-2",
-        "image_text_element_order": "reverse"
+        "image_text_element_order": ""
       }
     },
     "multicolumn": {
