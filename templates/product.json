@@ -122,11 +122,30 @@
     },
     "image-with-text": {
       "type": "image-with-text-new",
+      "blocks": {
+        "dc55d2e3-2b39-42ef-a0d0-37b9057088b7": {
+          "type": "heading",
+          "settings": {
+            "heading": "My awesome heading"
+          }
+        },
+        "050459ea-0b48-4eda-8d09-6ede37c9f798": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "dc55d2e3-2b39-42ef-a0d0-37b9057088b7",
+        "050459ea-0b48-4eda-8d09-6ede37c9f798"
+      ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/girl-listening-to-music-5.jpg",
-        "desktop_image_width": "medium",
+        "image": "shopify:\/\/shop_images\/girl-listening-to-music-2.jpg",
         "padding_top": 100,
-        "padding_bottom": 100
+        "padding_bottom": 100,
+        "standout_color_scheme": "font-color-accent-2",
+        "image_text_element_order": "reverse"
       }
     },
     "multicolumn": {
